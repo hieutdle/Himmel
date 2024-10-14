@@ -2,7 +2,9 @@
 #include <lexer.h>
 #include <token.h>
 
-class LexerTest : public ::testing::Test {};
+using namespace wukong;
+
+class LexerTest : public testing::Test {};
 
 TEST_F(LexerTest, TestNextToken) {
   const std::string input = R"(let five = 5;

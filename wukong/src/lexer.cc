@@ -1,5 +1,6 @@
 #include <lexer.h>
 
+namespace wukong {
 bool isLetter(char ch) {
   return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') || ch == '_';
 }
@@ -24,7 +25,8 @@ void Lexer::readChar() {
 
 // const means that the peekChar() function cannot modify any of the class’s
 // member variables, such as input or readPosition
-char Lexer::peekChar() const {
+// ReSharper disable once CppMemberFunctionMayBeConst
+char Lexer::peekChar() {
   if (readPosition >= input.size()) {
     return '\0';
   }
@@ -114,7 +116,7 @@ Token Lexer::nextToken() {
 }
 
 std::string Lexer::readIdentifier() {
-  size_t start = position;
+  const size_t start = position;
   while (isLetter(ch)) {
     readChar();
   }
@@ -122,9 +124,10 @@ std::string Lexer::readIdentifier() {
 }
 
 std::string Lexer::readNumber() {
-  size_t start = position;
+  const size_t start = position;
   while (isDigit(ch)) {
     readChar();
   }
   return input.substr(start, position - start);
 }
+} // namespace wukong
