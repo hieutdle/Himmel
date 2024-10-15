@@ -2,9 +2,11 @@
 #include <lexer.h>
 #include <token.h>
 
+#include "test_utils.h"
+
 using namespace monkey;
 
-class LexerTest : public testing::Test {};
+class LexerTest : public BasicTest {};
 
 TEST_F(LexerTest, TestNextToken) {
   const std::string input = R"(let five = 5;
@@ -75,13 +77,4 @@ if (5 < 10) {
         << "tests[" << i << "] - literal wrong. token=" << tok.literal
         << ". expected=" << tests[i].expectedLiteral << ", got=" << tok.literal;
   }
-}
-
-int main(int argc, char **argv) {
-  testing::InitGoogleTest(&argc, argv);
-
-  // Set GoogleTest to stop on first failure
-  GTEST_FLAG_SET(break_on_failure, true);
-
-  return RUN_ALL_TESTS();
 }

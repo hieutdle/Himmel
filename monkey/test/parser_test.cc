@@ -6,9 +6,11 @@
 #include <string>
 #include <vector>
 
+#include "test_utils.h"
+
 using namespace monkey;
 
-class ParserTest : public ::testing::Test {
+class ParserTest : public BasicTest{
 protected:
   static void TestLetStatement(Statement *stmt,
                                const std::string &expectedIdentifier) {
