@@ -10,7 +10,7 @@ build:
 	@echo "Build complete."
 
 # Run all tests using CTest
-test:
+test: build
 	@echo "Running tests..."
 	@cd $(BUILD_DIR) && ctest -V
 	@echo "All tests passed."

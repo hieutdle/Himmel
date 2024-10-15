@@ -49,7 +49,6 @@ add_executable(basic_test
         test/parser_test.cc
         ${TEST_UTILS})
 
-add_test(basic_test basic_test)
 target_link_libraries(basic_test monkey gtest gmock)
 
 include(GoogleTest)
