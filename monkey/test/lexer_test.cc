@@ -29,7 +29,7 @@ if (5 < 10) {
 )";
 
   struct Test {
-    monkey::TokenType expectedType;
+    TokenType expectedType;
     std::string expectedLiteral;
   };
 
@@ -57,7 +57,7 @@ if (5 < 10) {
       {LBRACE, "{"},     {RETURN, "return"}, {FALSE, "false"},
       {SEMICOLON, ";"},  {RBRACE, "}"},      {INT, "10"},
       {EQ, "=="},        {INT, "10"},        {SEMICOLON, ";"},
-      {INT, "10"},       {NE, "!="},        {INT, "9"},
+      {INT, "10"},       {NE, "!="},         {INT, "9"},
       {SEMICOLON, ";"},  {END, ""}};
 
   Lexer lexer(input);
@@ -78,7 +78,7 @@ if (5 < 10) {
 }
 
 int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
+  testing::InitGoogleTest(&argc, argv);
 
   // Set GoogleTest to stop on first failure
   GTEST_FLAG_SET(break_on_failure, true);

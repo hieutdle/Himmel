@@ -17,6 +17,9 @@ set(SOURCES
         src/main.cc
         src/repl.cc
         src/token.cc
+        src/ast.cc
+        include/parser.h
+        src/parser.cc
 )
 
 add_library(monkey SHARED ${SOURCES})
@@ -38,7 +41,8 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(lexer_test test/lexer_test.cc)
+add_executable(lexer_test test/lexer_test.cc
+        test/parser_test.cc)
 target_link_libraries(lexer_test monkey gtest gmock)
 
 include(GoogleTest)

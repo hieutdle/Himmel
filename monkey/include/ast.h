@@ -2,6 +2,7 @@
 #define AST_H
 #include <memory>
 #include <string>
+#include <token.h>
 #include <vector>
 
 namespace monkey {
@@ -24,7 +25,7 @@ public:
 
 /**
  * @brief Represent the statements, for example,
- * `let a = 3;` is a statement. It should inherit
+ * `let a = 8;` is a statement. It should inherit
  * from Node.
  */
 class Statement : public Node {
@@ -34,8 +35,8 @@ public:
 
 /**
  * @brief Represent the expression, for example,
- * `let a = 3`. `a` is the expression and also,
- * `3` is the expression. It should inherit from
+ * `let a = 8`. `a` is the expression and also,
+ * `8` is the expression. It should inherit from
  * Node.
  */
 
@@ -51,9 +52,44 @@ public:
  */
 class Program : public Node {
 public:
+  std::string tokenLiteral() override;
+
   std::vector<std::unique_ptr<Statement>> statements{};
+};
+
+/**
+ * @brief Identifier class. It is an expression.
+ * It is inherited from `Expression` class.
+ *
+ */
+class Identifier : public Expression {
+public:
+  Identifier() = default;
+  Identifier(Token, std::string);
 
   std::string tokenLiteral() override;
+
+  Token token;
+  std::string value;
 };
+
+/**
+ * @brief LetStatement represents let statement,
+ * for example `let a = 8`.
+ *
+ */
+class LetStatement : public Statement {
+public:
+  LetStatement() = default;
+
+  explicit LetStatement(Token);
+
+  std::string tokenLiteral() override;
+
+  std::unique_ptr<Identifier> name;
+  std::unique_ptr<Expression> value;
+  Token token;
+};
+
 } // namespace monkey
 #endif // AST_H
