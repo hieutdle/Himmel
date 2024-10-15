@@ -41,12 +41,15 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+set(TEST_UTILS test/test_utils.h)
+
 add_executable(basic_test
         test/basic.cc
         test/lexer_test.cc
         test/parser_test.cc
-        test/test_utils.h)
+        ${TEST_UTILS})
 
+add_test(basic_test basic_test)
 target_link_libraries(basic_test monkey gtest gmock)
 
 include(GoogleTest)
