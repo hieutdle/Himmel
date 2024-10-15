@@ -1,6 +1,6 @@
 #include <lexer.h>
 
-namespace wukong {
+namespace monkey {
 bool isLetter(char ch) {
   return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') || ch == '_';
 }
@@ -56,7 +56,7 @@ Token Lexer::nextToken() {
   case '!': {
     if (peekChar() == '=') {
       readChar();
-      tok = Token(NEQ, "!=");
+      tok = Token(NE, "!=");
     } else {
       tok = Token(BANG, ch);
     }
@@ -130,4 +130,4 @@ std::string Lexer::readNumber() {
   }
   return input.substr(start, position - start);
 }
-} // namespace wukong
+} // namespace monkey

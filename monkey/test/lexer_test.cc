@@ -2,7 +2,7 @@
 #include <lexer.h>
 #include <token.h>
 
-using namespace wukong;
+using namespace monkey;
 
 class LexerTest : public testing::Test {};
 
@@ -29,7 +29,7 @@ if (5 < 10) {
 )";
 
   struct Test {
-    TokenType expectedType;
+    monkey::TokenType expectedType;
     std::string expectedLiteral;
   };
 
@@ -57,7 +57,7 @@ if (5 < 10) {
       {LBRACE, "{"},     {RETURN, "return"}, {FALSE, "false"},
       {SEMICOLON, ";"},  {RBRACE, "}"},      {INT, "10"},
       {EQ, "=="},        {INT, "10"},        {SEMICOLON, ";"},
-      {INT, "10"},       {NEQ, "!="},        {INT, "9"},
+      {INT, "10"},       {NE, "!="},        {INT, "9"},
       {SEMICOLON, ";"},  {END, ""}};
 
   Lexer lexer(input);

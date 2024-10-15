@@ -4,7 +4,7 @@
 #include <string>
 #include <token.h>
 
-namespace wukong {
+namespace monkey {
 class Lexer {
 public:
   // you cannot create a Lexer object without passing
@@ -38,5 +38,5 @@ private:
   size_t readPosition; // Current reading position in input (after current char)
   char ch;             // Current character under examination
 };
-} // namespace wukong
+} // namespace monkey
 #endif // LEXER_H

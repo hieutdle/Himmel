@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-namespace wukong {
+namespace monkey {
 /**
  * @brief start the repl loop
  *
  */
 void Start(std::istream &in, std::ostream &out);
-} // namespace wukong
+} // namespace monkey
 
 #endif // REPL_H

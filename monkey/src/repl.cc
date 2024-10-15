@@ -3,7 +3,7 @@
 #include <string>
 #include <token.h>
 
-namespace wukong {
+namespace monkey {
 const std::string PROMPT = ">> ";
 
 void Start(std::istream &in, std::ostream &out) {
@@ -29,4 +29,4 @@ void Start(std::istream &in, std::ostream &out) {
     }
   }
 }
-} // namespace wukong
+} // namespace monkey

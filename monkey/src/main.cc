@@ -11,11 +11,11 @@ int main() {
 
   // Welcome message
   std::cout << "Hello " << userName
-            << "! This is the Wukong programming language!" << std::endl;
+            << "! This is the Monkey programming language!" << std::endl;
   std::cout << "Feel free to type in commands" << std::endl;
 
   // Start the REPL (Read-Eval-Print Loop)
-  wukong::Start(std::cin, std::cout);
+  monkey::Start(std::cin, std::cout);
 
   return 0;
 }
