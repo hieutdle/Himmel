@@ -41,9 +41,9 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(lexer_test test/lexer_test.cc
+add_executable(basic_test test/lexer_test.cc
         test/parser_test.cc)
-target_link_libraries(lexer_test monkey gtest gmock)
+target_link_libraries(basic_test monkey gtest gmock)
 
 include(GoogleTest)
-gtest_discover_tests(lexer_test)
+gtest_discover_tests(basic_test)
